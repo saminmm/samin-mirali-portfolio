@@ -511,6 +511,28 @@ li+li{margin-top:8px}
   height: auto;
 }
 
+/* Language controls reuse the navigation's colors and pill shape. */
+.nav-actions{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.nav-actions .nav-cta,.language-toggle{min-height:44px;display:inline-flex;align-items:center;justify-content:center}
+.language-toggle{min-width:46px;padding:10px 12px;border:1px solid var(--purple);border-radius:999px;background:var(--white);color:var(--purple);font:inherit;font-size:14px;font-weight:850;cursor:pointer;transition:background-color .18s ease,color .18s ease}
+.language-toggle[hidden]{display:none}
+.language-toggle:hover{background:var(--purple-soft)}
+.language-toggle:active{background:var(--purple);color:var(--white)}
+.language-toggle:focus-visible,.nav-actions .nav-cta:focus-visible{outline:3px solid var(--purple);outline-offset:3px}
+
+/* Let longer translated labels wrap inside their existing grid columns. */
+.hero-grid>*,.case-top>*,.grid-2>*,.grid-3>*,.meta-grid>*,.process>*,.moscow-grid>*{min-width:0}
+h1,h2,h3,.card,.step,.meta,.tag,.moscow-card{overflow-wrap:anywhere}
+.nav-actions .nav-cta{white-space:nowrap}
+@media(max-width:560px){
+  .nav-inner{flex-wrap:wrap;gap:10px;padding-top:12px;padding-bottom:12px}
+  .nav-inner .brand{flex:1 0 100%}
+  .nav-actions{margin-left:auto}
+}
+@media(prefers-reduced-motion:reduce){
+  .language-toggle{transition:none}
+}
+
 
 /* v9 Vertex-only refinements */
 .design-system-card {
