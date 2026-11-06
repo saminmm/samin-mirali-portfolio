@@ -553,3 +553,116 @@ h1,h2,h3,.card,.step,.meta,.tag,.moscow-card{overflow-wrap:anywhere}
   width: 100%;
   height: auto;
 }
+
+/* Responsive layout layer. Keep the established wide-desktop composition intact.
+   1100px: compact desktop / large tablet; 960px: stacked hero; 620px: phone. */
+@media (max-width: 1100px) {
+  html { scroll-padding-top: 96px; }
+  .hero { padding: 64px 0; }
+  section, .case-section { padding: 64px 0; }
+  .hero-grid, .case-top, .about-grid { gap: 32px; }
+  .hero h1, .case-top h1 { font-size: clamp(40px, 6vw, 64px); line-height: 1.06; }
+  .grid-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .process { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .moscow-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .step span { font-size: 14px; line-height: 1.5; }
+  .step strong { line-height: 1.35; }
+
+  /* Grid items must be allowed to shrink before their contents wrap. */
+  :is(.audience-grid, .tool-grid, .planning-grid, .research-grid,
+      .subsection-grid, .design-system-grid, .mockup-grid, .image-grid-2,
+      .image-grid-3, .image-grid-4, .quote-grid, .footer-grid) > * { min-width: 0; }
+  .contact-list a { overflow-wrap: anywhere; }
+  .brand, .links a, .contact-list a { min-height: 44px; }
+  .links a, .contact-list a { display: inline-flex; align-items: center; min-width: 44px; }
+  .btn { max-width: 100%; min-height: 44px; text-align: center; line-height: 1.4; }
+  a:focus-visible { outline: 3px solid var(--purple); outline-offset: 3px; border-radius: 4px; }
+
+  /* Natural dimensions reveal the full mockup instead of cropping it to a fixed box. */
+  .mockup-grid .visual-card, .mockup-grid .visual-card.tall { height: auto; align-self: start; }
+  .mockup-grid .visual-card img { height: auto; object-fit: contain; }
+  .about-photo img { height: auto; }
+  .card, .tool-card, .research-card, .planning-card, .moscow-card { padding: 24px; }
+}
+
+@media (max-width: 960px) {
+  html { scroll-padding-top: 140px; }
+  /* Keep all navigation available without a menu script or hover interaction. */
+  .nav-inner { display: flex; flex-wrap: wrap; gap: 4px 16px; padding-block: 10px; }
+  .nav-inner .brand { min-width: 0; flex: 1 1 auto; order: 1; }
+  .nav-actions { margin-left: 0; order: 2; flex-wrap: wrap; max-width: 100%; }
+  .links { display: flex; flex-basis: 100%; order: 3; flex-wrap: wrap; justify-content: center; gap: 4px 24px; }
+  .links a { justify-content: center; }
+  .hero-grid, .case-top, .about-grid { gap: 32px; }
+  .hero-image, .about-photo { width: 100%; max-width: 480px; margin-inline: auto; }
+  .case-visual { width: 100%; max-width: 720px; margin-inline: auto; }
+  .hero-image.clean-portrait img { height: auto; }
+  .case-hero { padding: 56px 0 40px; }
+  .case-top p, .hero p { font-size: 18px; }
+  .section-head h2, .about-text h2 { font-size: clamp(30px, 4.5vw, 44px); line-height: 1.12; }
+  .footer h2 { font-size: clamp(30px, 4.5vw, 40px); line-height: 1.15; }
+  .meta-grid, .stat-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .footer-grid { gap: 28px; }
+  .section-head.inline { align-items: flex-start; flex-wrap: wrap; }
+}
+
+@media (min-width: 768px) and (max-width: 960px) {
+  .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 620px) {
+  .container { width: calc(100% - 32px); }
+  .nav-inner { gap: 4px 8px; }
+  .brand { gap: 8px; font-size: 14px; }
+  .brand img { width: 36px; height: 36px; flex-shrink: 0; }
+  .nav-actions { gap: 8px; }
+  .nav-actions .nav-cta { font-size: 13px; padding: 8px 10px; }
+  .language-toggle { min-width: 44px; padding: 8px 10px; }
+  .links { justify-content: space-between; gap: 4px 8px; font-size: 13px; }
+  .hero, section, .case-section { padding: 44px 0; }
+  .case-hero { padding: 44px 0 32px; }
+  .hero h1, .case-top h1 { font-size: clamp(36px, 9.6vw, 52px); line-height: 1.08; letter-spacing: -.055em; }
+  .kicker { font-size: 14px; margin-bottom: 12px; }
+  .hero p, .case-top p, .about-text p, .section-head p, .case-section .content p { font-size: 16px; }
+  .section-head h2, .about-text h2, .case-section .content h2, .footer h2 { font-size: clamp(28px, 7.5vw, 36px); line-height: 1.15; letter-spacing: -.045em; }
+  .card h3, .project-body h3, .real-text-report h3 { font-size: 23px; line-height: 1.25; }
+  .section-head { margin-bottom: 24px; }
+  .hero-grid, .case-top, .about-grid { gap: 28px; }
+  .grid-2, .grid-3, .process, .audience-grid, .tool-grid, .planning-grid,
+  .research-grid, .moscow-grid, .subsection-grid, .design-system-grid,
+  .mockup-grid, .image-grid-2, .image-grid-3, .image-grid-4, .quote-grid { grid-template-columns: minmax(0, 1fr); gap: 20px; }
+  .meta-grid, .stat-list { gap: 12px; margin-top: 24px; }
+  .meta, .stat { padding: 16px 12px; }
+  .meta strong, .stat strong { font-size: 28px; line-height: 1.15; }
+  .meta span, .stat span { display: block; margin-top: 6px; line-height: 1.4; }
+  .card, .tool-card, .research-card, .planning-card, .moscow-card, .real-text-report, .cta-box { padding: 20px; border-radius: 24px; }
+  .project-body { padding: 20px; }
+  .skill { min-height: 0; }
+  .actions { gap: 12px; align-items: stretch; }
+  .actions .btn { flex: 1 1 auto; min-width: min(100%, 9rem); padding: 13px 16px; }
+  .project-body .btn { width: 100%; }
+  .project-img { height: auto; }
+  .project-img img { height: auto; object-fit: contain; }
+  .hero-image.clean-portrait { padding: 12px; }
+  .visual-card.pad-image, .case-visual.padded-preview, .case-visual.centered-preview { padding: 12px; }
+  .subsection-card .img-pad { padding: 12px; }
+  .subsection-card h3, .design-system-card h3 { padding: 18px 18px 0; font-size: 21px; line-height: 1.3; }
+  .subsection-card p, .design-system-card p { padding: 8px 18px 18px; }
+  .design-system-card img { max-width: calc(100% - 24px); margin-bottom: 16px; }
+  .interaction-flow-card { padding-bottom: 12px !important; }
+  .footer { padding: 40px 0 24px; }
+  .contact-list { gap: 8px; }
+  .copy { margin-top: 24px; }
+}
+
+/* At narrow widths / enlarged text, let header controls wrap rather than overlap. */
+@media (max-width: 360px) {
+  .brand { font-size: 13px; gap: 6px; }
+  .brand img { width: 32px; height: 32px; }
+  .nav-actions .nav-cta { padding-inline: 8px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .btn, .project, .visual-card.zoom-card { transition: none; }
+  .btn:hover, .project:hover, .visual-card.zoom-card:hover { transform: none; }
+}
